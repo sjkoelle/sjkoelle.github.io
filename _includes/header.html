@@ -1,5 +1,10 @@
-        {% for page in site.pages %}
-          {% if page.title %}
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-          {% endif %}
-        {% endfor %}
+<header>
+  <div class="logo">
+    <a href="{{ site.github.url }}/">{{ site.title }}</a>
+  </div>
+  <nav>
+    {% for item in site.data.settings.menu %}
+      <a href="{{ site.github.url }}/{{ item.url }}">{{ item.name }}</a>
+    {% endfor %}
+  </nav>
+</header>
