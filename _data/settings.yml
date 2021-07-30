@@ -4,8 +4,6 @@
 menu:
 - {name: 'Research', url: 'pages/research.html'}
 - {name: 'Updates', url: 'pages/news.html'}
-- {name: 'About', url: 'pages/about.html'}
-
 #-------------------------------
 # SEO Section
 

@@ -1,17 +1,39 @@
-# Build settings
-
-markdown: kramdown
-permalink: none
-plugins:             [jekyll-sitemap, jekyll-feed,  jekyll-seo-tag]
-
-port: 4000
 
 sass:
   sass_dir: assets/css
   style: :nested
 
+port: 4000
+markdown:  kramdown
+#theme: minima
+#permalink: /: none
+baseurl: 
+plugins:   [jekyll-sitemap, jekyll-feed,  jekyll-seo-tag,jekyll/scholar]
+
+
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 
-title:		           "Samson Koelle"
-description:	       "Powered by Jekyll and GitHub Pages, theme by Paul Le"
-author:              "Samson Koelle"
+title:		   "Portfolio Jekyll Theme"
+description: "Powered by Jekyll and GitHub Pages"
+
+scholar:
+
+  last_name: Einstein
+  first_name: [Albert, A.]
+
+  style: apa
+  locale: en
+  sort_by: year
+  order: descending
+  source: /_bibliography/
+  bibliography: papers.bib
+  bibliography_template: bib
+
+  replace_strings: true
+  join_strings: true
+
+  details_dir: bibliography
+  details_layout: bibtex.html
+  details_link: Details
+
+  query: "@*"
