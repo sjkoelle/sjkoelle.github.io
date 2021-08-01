@@ -35,5 +35,7 @@ scholar:
   details_dir: bibliography
   details_layout: bibtex.html
   details_link: Details
-
+  bibtex_filters: 
+    - latex
+    - markdown
   query: "@*"
