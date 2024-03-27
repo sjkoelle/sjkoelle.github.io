@@ -320,7 +320,7 @@ body {
   flex: 1;
 }
 .page-content img {
-  margin-left: -20px;
+  margin-left: -40px;
   margin-right: 50px; /* Add some space between the image and the bio */
 }
 
