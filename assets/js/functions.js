@@ -13,16 +13,42 @@ async function loadProjects() {
       const projectElement = document.createElement("div");
 
       projectElement.classList.add("customLinkContainer");
-      projectElement.innerHTML = `
-	  	  <div class="year">${project.year}</div> 
-		  <h3>${project.title}</h3>
-		  <p class="authors">${project.authors}</p>
-		  <p class="venue">${project.venue}</p>
-		  <div class="links">
-		  <a href="${project.pdfLink}" target="_blank" class="nested-link">PDF</a> 
-		  <a href="${project.codeLink}" target="_blank" class="nested-link">Code</a>
-		  </div>
-		  `;
+      let projectContent = `<div class="content">`;
+
+      // Conditionally add authors
+      if (project.year) {
+        projectContent += `<div class="year">${project.year}</div>`;
+      }
+      // Conditionally add the title
+      if (project.title) {
+        projectContent += `<h3>${project.title}</h3>`;
+      }
+
+      // Conditionally add authors
+      if (project.authors) {
+        projectContent += `<p class="authors">${project.authors}</p>`;
+      }
+
+      // Conditionally add venue and year
+      if (project.venue) {
+        projectContent += `<p class="venue">${project.venue}</p>`;
+      }
+
+      // Close the content div
+      projectContent += `</div>`;
+      // Always add links container but only add links if they exist
+      let linksContent = `<div class="links">`;
+
+      if (project.pdfLink) {
+        linksContent += `<a href="${project.pdfLink}" target="_blank" class="nested-link">PDF</a>`;
+      }
+
+      if (project.codeLink) {
+        linksContent += `<a href="${project.codeLink}" target="_blank" class="nested-link">Code</a>`;
+      }
+      linksContent += `</div>`;
+
+      projectElement.innerHTML = projectContent + linksContent;
 
       // Add event listener for the entire container to open PDF in a new tab
       projectElement.addEventListener("click", () => {
