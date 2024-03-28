@@ -14,9 +14,11 @@ async function loadProjects() {
 
       projectElement.classList.add("customLinkContainer");
       projectElement.innerHTML = `
+	  	  <div class="year">${project.year}</div> 
 		  <h3>${project.title}</h3>
-		  <p class="authors">Authors: ${project.authors}</p>
-		  <p class="venue">Venue: ${project.venue}, ${project.year}</p>
+		  <p class="authors">${project.authors}</p>
+		  <p class="venue">${project.venue}</p>
+
 		  <a href="${project.pdfLink}" target="_blank" class="nested-link">PDF</a> 
 		  <a href="${project.codeLink}" target="_blank" class="nested-link">Code</a>
 		`;

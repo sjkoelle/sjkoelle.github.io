@@ -279,22 +279,6 @@ body {
   text-decoration: underline;
 }
 
-.oval-link {
-  display: inline-block;
-  background-color: #fff; /* White background for the links */
-  color: purple; /* Text color */
-  padding: 10px 20px;
-  margin-top: 50px;
-  text-decoration: none;
-  border-radius: 50%; /* Fully rounded edges for the links */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow for depth */
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
-}
-
-.oval-link:hover {
-  background-color: #e3c6b1; /* Change color on hover */
-  color: #fff; /* Text color on hover */
-}
 .link-wrapper {
   display: flex;
   margin-left: -300px;
@@ -303,16 +287,10 @@ body {
 }
 
 .customLinkContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end; /* Align children to the bottom */
   align-items: flex-start; /* Align children to the left */
-  justify-content: center;
-  color: purple; /* Text color */
   background-color: white; /* Light grey background */
   border: 2px solid #000; /* Example: 2px solid black border */
-  padding: 20px;
-  border-radius: 10% / 50%; /* Oval shape */
+  border-radius: 5% / 50%; /* Oval shape */
   width: 600px; /* Adjust based on content */
   height: 100px; /* Adjust based on content */
   gap: 10px; /* Space between links */
@@ -327,14 +305,25 @@ body {
 }
 
 .customLinkContainer h3 {
-  color: purple; /* Text color */
+  width: 100%; /* Full width */
+  margin-left: 15px;
+  margin-top: 5px;
+  text-align: left; /* Center the text */
+  margin-bottom: 10px;
+}
+
+.customLinkContainer p {
+  width: 100%; /* Full width */
+  margin-left: 15px;
+  margin-top: -15px;
+  text-align: left; /* Center the text */
 }
 .customLinkContainer a {
   display: inline-block;
+  align-self: flex-end;
   background-color: #fff; /* White background for the links */
   color: purple; /* Text color */
   padding: 10px 20px;
-  margin-top: 50px;
   text-decoration: none;
   border-radius: 50%; /* Fully rounded edges for the links */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow for depth */
@@ -356,4 +345,14 @@ body {
   /* Here you can define how the container should look when the child is hovered */
   /* For example, you might revert to the default background color */
   background-color: transparent; /* Revert to default or any specific style */
+}
+
+.year {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: -30px; /* Adjust based on the desired visual offset */
+  transform: translate(-50%, -50%) rotate(-90deg); /* Adjusts positioning and rotates */
+  white-space: nowrap; /* Keeps the year in one line */
+  background-color: #fff; /* Match the container or page background */
+  padding: 5px; /* Add some padding around the year */
 }
