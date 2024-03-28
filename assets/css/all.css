@@ -35,6 +35,20 @@ body {
       format("woff");
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content */
+}
+.z-depth-1 {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.rounded {
+  border-radius: 0.25rem; /* Adjust for more or less rounding */
+}
+
 /*	Typography presets
  * ------------------------------------	 */
 .gigantic,
@@ -52,64 +66,11 @@ h6 {
   font-weight: bold;
 }
 
-.gigantic {
-  font-size: 110px;
-  line-height: 1.09;
-  letter-spacing: -2px;
-}
-
 .huge,
 h1 {
-  font-size: 42px;
+  font-size: 36px;
   line-height: 1.05;
   letter-spacing: -1px;
-  margin-left: 0.63em;
-}
-
-.large,
-h2 {
-  font-size: 18px;
-  line-height: 1.05;
-  letter-spacing: -1px;
-  margin-left: 0.63em;
-}
-
-.bigger,
-h3 {
-  font-size: 26px;
-  line-height: 1.38;
-}
-
-.big,
-h4 {
-  font-size: 22px;
-  line-height: 1.38;
-}
-
-.small,
-small {
-  font-size: 10px;
-  line-height: 1.2;
-}
-
-p {
-  margin: 0 0 20px 0;
-}
-
-em {
-  font-style: italic;
-}
-
-strong {
-  font-weight: bold;
-}
-
-hr {
-  border: solid #ddd;
-  border-width: 1px 0 0;
-  clear: both;
-  margin: 10px 0 30px;
-  height: 0;
 }
 
 /* Links
@@ -158,12 +119,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
 }
+.header-container {
+  text-align: left; /* Center the heading text */
+}
 
 header {
   height: 90px;
 }
 header .logo {
-  float: left;
+  float: right;
   margin: 30px;
   font-size: 24px;
   font-weight: 700;
@@ -189,77 +153,10 @@ header nav a {
 header nav a:hover {
   color: #bd5248;
 }
-
-.thumb-container {
-  max-width: 750px;
-  margin: 0px auto 0px;
-  padding: 30px;
-}
-.thumb-container:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.thumb-container .thumb-unit {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  cursor: pointer;
-  display: block;
-  width: 600px;
-  height: 300px;
-  margin: 0px auto 30px;
-  position: relative;
-  overflow: hidden;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.thumb-container .thumb-unit .thumb-overlay {
-  position: absolute;
-  top: 100%;
-  right: 0px;
-  left: 0px;
-  height: 100%;
-  background: rgba(51, 51, 51, 0.5);
-  text-align: center;
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
+.flex-container {
   display: flex;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  box-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-  -ms-flex-align: center;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  box-pack: center;
-  -webkit-justify-content: space-around;
-  -moz-justify-content: space-around;
-  -ms-justify-content: space-around;
-  -o-justify-content: space-around;
-  justify-content: space-around;
-  -ms-flex-pack: center;
-}
-.thumb-container .thumb-unit .thumb-overlay strong {
-  display: block;
-  padding: 20px;
-  color: white;
-  line-height: 1.2;
-  font-size: 24px;
-  font-weight: 300;
-}
-.thumb-container .thumb-unit:hover .thumb-overlay {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  left: 0px;
+  flex-direction: column; /* Stack photo above text on mobile */
+  align-items: flex-start; /* Center-align items for a nice look on mobile */
 }
 
 @media (max-width: 768px) {
@@ -282,6 +179,19 @@ body {
   margin: auto;
 }
 
+@media (min-width: 768px) {
+  /* Adjust for tablets and up */
+  .flex-container {
+    flex-direction: row; /* Side-by-side layout on larger screens */
+    align-items: flex-start; /* Align items to the start */
+  }
+  .flex-item-text {
+    margin-left: 20px; /* Add some space between the photo and text */
+  }
+}
+.flex-container img {
+  order: -1; /* Move the image to the top */
+}
 .icons-only-nav a {
   display: inline-block;
   margin: 0 15px; /* Spacing between icons */
@@ -319,48 +229,23 @@ body {
 .page-content div {
   flex: 1;
 }
-.page-content img {
-  margin-left: -40px;
-  margin-right: 50px; /* Add some space between the image and the bio */
+.content-container {
+  display: flex;
+  width: 100%; /* Take the full width of the main container */
+  justify-content: space-between; /* Space between text and image */
+  align-items: flex-start; /* Align items at the top */
 }
 
-@media (max-width: 1000px) {
-  .page-content {
-    width: 80vw;
-  }
+.text-container {
+  flex: 1; /* Both take equal space */
+  padding: 10px; /* Add some padding around */
+  order: 2;
 }
-
 .image-container {
-  position: relative;
-  width: 100%;
-  margin-bottom: 20px;
-}
-.image-container:hover .overlay {
-  opacity: 1;
-}
-.image-container .image {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.image-container .overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  background-color: rgba(255, 255, 255, 0.05);
-}
-.image-container .text {
-  color: black;
-  font-size: 24px;
-  font-weight: 700;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  flex: 1; /* Both take equal space */
+  padding: 10px; /* Add some padding around */
+  order: 1;
+  margin-top: 20px;
+  margin-left: 50px;
+  max-width: 300px; /* Adjust this value as needed */
 }
