@@ -35,20 +35,6 @@ body {
       format("woff");
 }
 
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center the content */
-}
-.z-depth-1 {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-}
-
-.rounded {
-  border-radius: 0.25rem; /* Adjust for more or less rounding */
-}
-
 /*	Typography presets
  * ------------------------------------	 */
 .gigantic,
@@ -153,11 +139,6 @@ header nav a {
 header nav a:hover {
   color: #bd5248;
 }
-.flex-container {
-  display: flex;
-  flex-direction: column; /* Stack photo above text on mobile */
-  align-items: flex-start; /* Center-align items for a nice look on mobile */
-}
 
 @media (max-width: 768px) {
   .thumb-container {
@@ -179,18 +160,25 @@ body {
   margin: auto;
 }
 
-@media (min-width: 768px) {
-  /* Adjust for tablets and up */
-  .flex-container {
-    flex-direction: row; /* Side-by-side layout on larger screens */
-    align-items: flex-start; /* Align items to the start */
-  }
-  .flex-item-text {
-    margin-left: 20px; /* Add some space between the photo and text */
+@media (max-width: 1000px) {
+  .site-container {
+    width: 95vw;
   }
 }
-.flex-container img {
-  order: -1; /* Move the image to the top */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content */
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column; /* Stack photo above text on mobile */
+  align-items: flex-start; /* Center-align items for a nice look on mobile */
+}
+
+.flex-item {
+  margin-left: 20px;
 }
 .icons-only-nav a {
   display: inline-block;
@@ -211,11 +199,6 @@ body {
   margin-top: 20px; /* Ensure there's space between the content and the nav */
 }
 
-@media (max-width: 1000px) {
-  .site-container {
-    width: 95vw;
-  }
-}
 .page-content {
   display: flex;
   justify-content: space-between;
@@ -241,11 +224,29 @@ body {
   padding: 10px; /* Add some padding around */
   order: 2;
 }
-.image-container {
-  flex: 1; /* Both take equal space */
-  padding: 10px; /* Add some padding around */
-  order: 1;
-  margin-top: 20px;
-  margin-left: 50px;
-  max-width: 300px; /* Adjust this value as needed */
+
+.text-container img {
+  float: right;
+  margin-left: 20px;
+  width: 40%;
+  border-radius: 5px; /* Adds rounded corners to the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+/* Responsive image style for mobile screens */
+@media (max-width: 600px) {
+  .text-container img {
+    float: center;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+}
+
+/* Style adjustments for larger screens */
+@media (min-width: 601px) {
+  .text-container img {
+    float: right;
+    width: 40%; /* Set width to 50% for larger screens */
+    margin-top: 20px;
+  }
 }
