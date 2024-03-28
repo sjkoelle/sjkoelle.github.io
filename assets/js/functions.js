@@ -31,7 +31,7 @@ async function loadProjects() {
 
       // Conditionally add venue and year
       if (project.venue) {
-        projectContent += `<p class="venue">${project.venue}</p>`;
+        projectContent += `<p class="venue">for ${project.venue}</p>`;
       }
 
       // Close the content div

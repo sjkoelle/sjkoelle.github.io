@@ -293,7 +293,6 @@ body {
   border-radius: 5% / 50%; /* Oval shape */
   width: 600px; /* Adjust based on content */
   height: 100px; /* Adjust based on content */
-  gap: 10px; /* Space between links */
   position: relative; /* Needed for absolute positioning of child */
   margin-top: 10px;
   margin-bottom: 10px;
@@ -309,18 +308,20 @@ body {
 
 .customLinkContainer h3 {
   width: 100%; /* Full width */
-  margin-left: 15px;
-  margin-top: 5px;
+  margin-left: 25px;
+  margin-top: auto;
+  margin-bottom: auto;
   text-align: left; /* Center the text */
-  margin-bottom: 15px;
 }
 
 .customLinkContainer p {
   width: 100%; /* Full width */
-  margin-left: 15px;
-  margin-top: -25px;
+  margin-top: auto;
+  margin-bottom: auto;
   text-align: left; /* Center the text */
+  margin-left: 25px;
 }
+
 .customLinkContainer a {
   display: inline-block;
   align-self: flex-end;
