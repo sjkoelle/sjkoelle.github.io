@@ -297,6 +297,9 @@ body {
   position: relative; /* Needed for absolute positioning of child */
   margin-top: 10px;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .customLinkContainer:hover {
@@ -315,7 +318,7 @@ body {
 .customLinkContainer p {
   width: 100%; /* Full width */
   margin-left: 15px;
-  margin-top: -15px;
+  margin-top: -25px;
   text-align: left; /* Center the text */
 }
 .customLinkContainer a {
@@ -329,7 +332,13 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow for depth */
   transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
 }
-
+.links {
+  position: absolute;
+  bottom: 10px; /* Adjust the distance from the bottom */
+  right: 10px; /* Adjust the distance from the right */
+  display: flex;
+  gap: 10px; /* Maintain spacing between links */
+}
 .customLinkContainer a:hover {
   background-color: #e3c6b1; /* Change color on hover */
   color: #fff; /* Text color on hover */

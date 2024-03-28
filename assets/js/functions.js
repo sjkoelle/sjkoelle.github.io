@@ -18,10 +18,11 @@ async function loadProjects() {
 		  <h3>${project.title}</h3>
 		  <p class="authors">${project.authors}</p>
 		  <p class="venue">${project.venue}</p>
-
+		  <div class="links">
 		  <a href="${project.pdfLink}" target="_blank" class="nested-link">PDF</a> 
 		  <a href="${project.codeLink}" target="_blank" class="nested-link">Code</a>
-		`;
+		  </div>
+		  `;
 
       // Add event listener for the entire container to open PDF in a new tab
       projectElement.addEventListener("click", () => {
