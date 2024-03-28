@@ -289,13 +289,11 @@ body {
 .customLinkContainer {
   align-items: flex-start; /* Align children to the left */
   background-color: white; /* Light grey background */
-
-  width: 80vw; /* Use viewport width */
-  max-width: 600px; /* Maximum width to prevent it from getting too wide on large screens */
-  min-height: 150px; /* Keeps a minimum height */
+  max-width: 60vw; /* Maximum width to prevent it from getting too wide on large screens */
+  min-height: 9vw; /* Keeps a minimum height */
   position: relative; /* Needed for absolute positioning of child */
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -308,8 +306,8 @@ body {
 
 .customLinkContainer h3 {
   width: 100%; /* Full width */
-  margin-left: 25px;
-  margin-top: 10px;
+  margin-left: 2vw;
+  margin-top: 1vw;
   margin-bottom: auto;
   text-align: left; /* Center the text */
 }
@@ -319,7 +317,7 @@ body {
   margin-top: auto;
   margin-bottom: auto;
   text-align: left; /* Center the text */
-  margin-left: 25px;
+  margin-left: 2vw;
 }
 
 .customLinkContainer a {
@@ -339,7 +337,7 @@ body {
   gap: 5px; /* Maintain spacing between links */
   display: flex;
   flex-direction: row;
-  left: 25px; /* Position at the left edge */
+  left: 2vw; /* Position at the left edge */
   bottom: 5px; /* Position at the bottom */
 }
 .customLinkContainer a:hover {
@@ -362,17 +360,15 @@ body {
 .year {
   position: absolute;
   top: 50%; /* Center vertically */
-  left: -30px; /* Adjust based on the desired visual offset */
   transform: translate(-50%, -50%) rotate(-90deg); /* Adjusts positioning and rotates */
-  white-space: nowrap; /* Keeps the year in one line */
   background-color: #fff; /* Match the container or page background */
-  padding: 5px; /* Add some padding around the year */
+  padding: 0.5vw; /* Add some padding around the year */
 }
 
 @media (max-width: 768px) {
   .year {
-    position: static; /* Or adjust positioning for small screens */
-    padding-top: 10px; /* Add some space */
+    min-width: 9vw; /* Keeps a minimum height */
+    padding-top: 1vw; /* Add some space */
     text-align: center; /* Center it if the layout changes */
     order: -1; /* Place it at the beginning if using flexbox */
   }

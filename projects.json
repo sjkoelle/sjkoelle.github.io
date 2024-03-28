@@ -14,5 +14,14 @@
     "venue": "Ogilvy x Milka",
     "year": 2024,
     "url": "/"
+  },
+  {
+    "title": "Consistency of dictionary-based manifold learning",
+    "authors": "Hanyu Zhang, Octavian Murad, Samson Koelle, Marina Meila",
+    "venue": "AISTAT",
+    "year": 2024,
+    "pdfLink": "link-to-pdf-1",
+    "codeLink": "link-to-code-1",
+    "url": "/"
   }
 ]
