@@ -1,13 +1,52 @@
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".customLinkContainer").forEach((container) => {
-    const title = container.getAttribute("data-title");
-    const url = container.getAttribute("data-url");
-    const pdfLink = container.getAttribute("data-pdf-link");
-    const codeLink = container.getAttribute("data-code-link");
+async function loadProjects() {
+  try {
+    const response = await fetch("projects.json");
+    const projects = await response.json();
 
-    container.innerHTML = `<h3>${title}</h3>
-                               <a href="${url}" target="_blank">Visit</a> 
-                               <a href="${pdfLink}" target="_blank">PDF</a> 
-                               <a href="${codeLink}" target="_blank">Code</a>`;
-  });
-});
+    const container = document.getElementById("projects-container");
+    if (!container) {
+      console.error("Container for projects not found");
+      return; // Stop execution if container isn't found
+    }
+
+    projects.forEach((project) => {
+      const projectElement = document.createElement("div");
+
+      projectElement.classList.add("customLinkContainer");
+      projectElement.innerHTML = `
+		  <h3>${project.title}</h3>
+		  <p class="authors">Authors: ${project.authors}</p>
+		  <p class="venue">Venue: ${project.venue}, ${project.year}</p>
+		  <a href="${project.pdfLink}" target="_blank" class="nested-link">PDF</a> 
+		  <a href="${project.codeLink}" target="_blank" class="nested-link">Code</a>
+		`;
+
+      // Add event listener for the entire container to open PDF in a new tab
+      projectElement.addEventListener("click", () => {
+        window.open(project.url, "_blank");
+      });
+
+      // Prevent link click from bubbling up to the container's click event
+      projectElement.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (e) => e.stopPropagation());
+      });
+      document.querySelectorAll(".customLinkContainer a").forEach((link) => {
+        // Mouse enters the link, remove hover effect from parent
+        link.addEventListener("mouseenter", function () {
+          this.parentNode.classList.add("child-hovered");
+        });
+
+        // Mouse leaves the link, re-add hover effect to parent
+        link.addEventListener("mouseleave", function () {
+          this.parentNode.classList.remove("child-hovered");
+        });
+      });
+      container.appendChild(projectElement);
+    });
+  } catch (error) {
+    console.error("Failed to load projects:", error);
+  }
+}
+
+// Call the function when the document content is fully loaded
+document.addEventListener("DOMContentLoaded", loadProjects);

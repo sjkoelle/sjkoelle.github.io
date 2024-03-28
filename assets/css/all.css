@@ -1,5 +1,4 @@
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
-@import url(academicons.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -309,6 +308,7 @@ body {
   justify-content: flex-end; /* Align children to the bottom */
   align-items: flex-start; /* Align children to the left */
   justify-content: center;
+  color: purple; /* Text color */
   background-color: white; /* Light grey background */
   border: 2px solid #000; /* Example: 2px solid black border */
   padding: 20px;
@@ -317,17 +317,18 @@ body {
   height: 100px; /* Adjust based on content */
   gap: 10px; /* Space between links */
   position: relative; /* Needed for absolute positioning of child */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.customLinkContainer:hover {
+  background-color: #e3c6b1; /* Light grey color, adjust as desired */
+  cursor: pointer;
 }
 
 .customLinkContainer h3 {
-  display: inline-block;
-  background-color: #fff; /* White background for the links */
   color: purple; /* Text color */
-  padding: 10px 20px;
-
-  text-decoration: none;
 }
-
 .customLinkContainer a {
   display: inline-block;
   background-color: #fff; /* White background for the links */
@@ -343,4 +344,16 @@ body {
 .customLinkContainer a:hover {
   background-color: #e3c6b1; /* Change color on hover */
   color: #fff; /* Text color on hover */
+}
+
+/* Hover effect for the container, applied only when not having the 'child-hovered' class */
+.customLinkContainer:not(.child-hovered):hover {
+  background-color: #f0f0f0; /* Example hover color */
+}
+
+/* Styles for when the child link is hovered */
+.customLinkContainer.child-hovered {
+  /* Here you can define how the container should look when the child is hovered */
+  /* For example, you might revert to the default background color */
+  background-color: transparent; /* Revert to default or any specific style */
 }
