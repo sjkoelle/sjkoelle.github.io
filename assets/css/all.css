@@ -62,7 +62,7 @@ h1 {
 /* Links
  * ------------------------------------	 */
 a {
-  color: #c99065;
+  color: purple;
   text-decoration: none;
   outline: 0;
 }
@@ -249,4 +249,98 @@ body {
     width: 40%; /* Set width to 50% for larger screens */
     margin-top: 20px;
   }
+}
+
+.nav-content {
+  width: 100%;
+  max-width: 1200px; /* Adjust based on your site's max width */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo h1 {
+  font-size: 36px; /* Adjust font size as needed */
+}
+
+.nav-links {
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.oval-link {
+  display: inline-block;
+  background-color: #fff; /* White background for the links */
+  color: purple; /* Text color */
+  padding: 10px 20px;
+  margin-top: 50px;
+  text-decoration: none;
+  border-radius: 50%; /* Fully rounded edges for the links */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow for depth */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+.oval-link:hover {
+  background-color: #e3c6b1; /* Change color on hover */
+  color: #fff; /* Text color on hover */
+}
+.link-wrapper {
+  display: flex;
+  margin-left: -300px;
+  gap: 20px; /* Space between links */
+  padding-bottom: 20px; /* Adjust as needed to position links from the bottom edge */
+}
+
+.customLinkContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; /* Align children to the bottom */
+  align-items: flex-start; /* Align children to the left */
+  justify-content: center;
+  background-color: white; /* Light grey background */
+  border: 2px solid #000; /* Example: 2px solid black border */
+  padding: 20px;
+  border-radius: 10% / 50%; /* Oval shape */
+  width: 600px; /* Adjust based on content */
+  height: 100px; /* Adjust based on content */
+  gap: 10px; /* Space between links */
+  position: relative; /* Needed for absolute positioning of child */
+}
+
+.customLinkContainer h3 {
+  display: inline-block;
+  background-color: #fff; /* White background for the links */
+  color: purple; /* Text color */
+  padding: 10px 20px;
+
+  text-decoration: none;
+}
+
+.customLinkContainer a {
+  display: inline-block;
+  background-color: #fff; /* White background for the links */
+  color: purple; /* Text color */
+  padding: 10px 20px;
+  margin-top: 50px;
+  text-decoration: none;
+  border-radius: 50%; /* Fully rounded edges for the links */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow for depth */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+.customLinkContainer a:hover {
+  background-color: #e3c6b1; /* Change color on hover */
+  color: #fff; /* Text color on hover */
 }
