@@ -289,11 +289,10 @@ body {
 .customLinkContainer {
   align-items: flex-start; /* Align children to the left */
   background-color: white; /* Light grey background */
-  border: 2px solid #000; /* Example: 2px solid black border */
-  border-radius: 5% / 50%; /* Oval shape */
+
   width: 80vw; /* Use viewport width */
   max-width: 600px; /* Maximum width to prevent it from getting too wide on large screens */
-  min-height: 100px; /* Keeps a minimum height */
+  min-height: 150px; /* Keeps a minimum height */
   position: relative; /* Needed for absolute positioning of child */
   margin-top: 10px;
   margin-bottom: 10px;
@@ -327,19 +326,21 @@ body {
   display: inline-block;
   align-self: flex-end;
   background-color: #fff; /* White background for the links */
+  border: 2px solid #000; /* Example: 2px solid black border */
   color: purple; /* Text color */
   padding: 10px 20px;
   text-decoration: none;
-  border-radius: 50%; /* Fully rounded edges for the links */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow for depth */
+  width: 100%; /* Make both links the same width */
   transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
 }
 .links {
   position: absolute;
-  bottom: 10px; /* Adjust the distance from the bottom */
-  right: 10px; /* Adjust the distance from the right */
   display: flex;
-  gap: 10px; /* Maintain spacing between links */
+  gap: 5px; /* Maintain spacing between links */
+  display: flex;
+  flex-direction: row;
+  left: 25px; /* Position at the left edge */
+  bottom: 5px; /* Position at the bottom */
 }
 .customLinkContainer a:hover {
   background-color: #e3c6b1; /* Change color on hover */
@@ -361,6 +362,7 @@ body {
 .year {
   position: absolute;
   top: 50%; /* Center vertically */
+  left: -30px; /* Adjust based on the desired visual offset */
   transform: translate(-50%, -50%) rotate(-90deg); /* Adjusts positioning and rotates */
   white-space: nowrap; /* Keeps the year in one line */
   background-color: #fff; /* Match the container or page background */
