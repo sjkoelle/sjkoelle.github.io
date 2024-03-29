@@ -320,6 +320,15 @@ p {
   top: 0.5vw; /* Position at the bottom */
 }
 
+.year {
+  position: absolute;
+  line-height: normal;
+  display: flex;
+  font-size: 30;
+  right: 2vw; /* Position at the left edge */
+  bottom: 1vw; /* Position at the bottom */
+}
+
 .links {
   position: absolute;
   line-height: normal;
@@ -355,23 +364,6 @@ p {
   /* Here you can define how the container should look when the child is hovered */
   /* For example, you might revert to the default background color */
   background-color: transparent; /* Revert to default or any specific style */
-}
-
-.year {
-  position: absolute;
-  top: 50%; /* Center vertically */
-  transform: translate(-50%, -50%) rotate(-90deg); /* Adjusts positioning and rotates */
-  background-color: #fff; /* Match the container or page background */
-  padding: 0.5vw; /* Add some padding around the year */
-}
-
-@media (max-width: 768px) {
-  .year {
-    min-width: 9vw; /* Keeps a minimum height */
-    padding-top: 1vh; /* Add some space */
-    text-align: center; /* Center it if the layout changes */
-    order: -1; /* Place it at the beginning if using flexbox */
-  }
 }
 
 .site-container {

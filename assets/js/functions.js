@@ -13,12 +13,13 @@ async function loadProjects() {
       const projectElement = document.createElement("div");
 
       projectElement.classList.add("customLinkContainer");
+      if (project.year) {
+        projectYear = `<div class="year">${project.year}</div>`;
+      }
       let projectContent = `<div class="content">`;
 
       //   // Conditionally add authors
-      //   if (project.year) {
-      //     projectContent += `<div class="year">${project.year}</div>`;
-      //   }
+
       // Conditionally add the title
       if (project.title) {
         projectContent += `<h3>${project.title}</h3>`;
@@ -48,7 +49,7 @@ async function loadProjects() {
       }
       linksContent += `</div>`;
 
-      projectElement.innerHTML = projectContent + linksContent;
+      projectElement.innerHTML = projectContent + linksContent + projectYear;
 
       // Add event listener for the entire container to open PDF in a new tab
       projectElement.addEventListener("click", () => {
