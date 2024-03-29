@@ -321,12 +321,9 @@ body {
 .customLinkContainer h5,
 h3,
 p {
-  width: 100%; /* Full width */
-  height: auto;
   margin-left: 2vw;
-  margin-top: 1vh;
+  margin-top: auto;
   margin-bottom: auto;
-  text-align: left; /* Center the text */
 }
 
 @media (max-width: 768px) {
@@ -342,39 +339,31 @@ p {
   }
 }
 
+.content {
+  position: absolute;
+  flex-direction: column;
+  display: flex;
+  left: 2vw; /* Position at the left edge */
+  top: 0; /* Position at the bottom */
+}
+
+.links {
+  position: absolute;
+  flex-direction: row;
+  gap: 1vw; /* Maintain spacing between links */
+  display: flex;
+  left: 2vw; /* Position at the left edge */
+  bottom: 0; /* Position at the bottom */
+}
+
 .customLinkContainer a {
   align-self: flex-end;
-  height: auto;
   display: flex;
   background-color: #fff; /* White background for the links */
   border: 2px solid #000; /* Example: 2px solid black border */
   color: purple; /* Text color */
   padding: 10px 20px;
-  text-decoration: none;
-  width: 100%; /* Make both links the same width */
   transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
-}
-
-.links {
-  position: absolute;
-  height: auto;
-  display: flex;
-  gap: 1vw; /* Maintain spacing between links */
-  display: flex;
-  top: 2vw;
-  left: 2vw; /* Position at the left edge */
-  bottom: 0.5vw; /* Position at the bottom */
-}
-@media (max-width: 768px) {
-  .links {
-    align-items: center; /* Center the links on smaller screens */
-    gap: 0.5vw; /* Maintain spacing between links */
-    display: flex;
-    height: auto;
-    margin-left: 2vw;
-    margin-top: 22vw;
-    display: flex;
-  }
 }
 
 .customLinkContainer a:hover {
