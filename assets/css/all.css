@@ -306,20 +306,21 @@ body {
 .customLinkContainer h5,
 h3,
 p {
-  margin-top: auto;
-  margin-bottom: auto;
+  margin: 0;
+  width: 100%;
+  padding: 0.5%;
 }
 
 .columns {
-  /* position: absolute; */
   line-height: normal;
   flex-direction: row;
+  width: 100%;
   display: flex;
 }
 
 .content {
-  /* position: absolute; */
   line-height: normal;
+  width: 80%;
   flex-direction: column;
   display: flex;
   left: 2vw; /* Position at the left edge */
@@ -328,10 +329,10 @@ p {
 
 .year {
   position: absolute;
+  margin-top: auto;
   line-height: normal;
   display: flex;
   font-size: 30;
-  top: 0vw;
   right: 0vw;
 }
 
@@ -341,6 +342,7 @@ p {
   flex-direction: row;
   gap: 1vw; /* Maintain spacing between links */
   display: flex;
+  padding: 0.5%;
 }
 
 .customLinkContainer a {
