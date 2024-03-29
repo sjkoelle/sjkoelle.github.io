@@ -289,7 +289,7 @@ body {
 .customLinkContainer {
   align-items: flex-start; /* Align children to the left */
   background-color: white; /* Light grey background */
-  max-width: 800px;
+  max-width: 850px;
   min-height: 10vh;
   padding: 1vw;
   width: 100%;

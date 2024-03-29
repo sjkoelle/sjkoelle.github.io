@@ -7,7 +7,7 @@
     "links": [
       { "name": "Code", "url": "https://github.com/sjkoelle/montlake" }
     ],
-    "url": "/"
+    "url": "https://arxiv.org/abs/2302.00263"
   },
   {
     "title": "Let Snelle Sing It For You",
@@ -60,6 +60,12 @@
       { "name": "Code", "url": "https://github.com/sjkoelle/montlake" }
     ],
     "url": "https://jmlr.org/papers/v23/19-644.html"
+  },
+  {
+    "title": "Yotta Rappt",
+    "authors": "Uberduck",
+    "year": 2021,
+    "url": "https://www.uberduck.ai/case-studies/yotta"
   },
   {
     "title": "Geometric Algorithms for Interpretable Manifold Learning",
