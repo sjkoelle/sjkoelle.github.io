@@ -76,6 +76,17 @@ async function loadProjects() {
           this.parentNode.classList.remove("child-hovered");
         });
       });
+
+      // Simplified animation on hover
+      projectElement.classList.add("simple-animation");
+      projectElement.addEventListener("mouseenter", function () {
+        this.style.transform = "scale(1.05)";
+        this.style.transition = "transform 0.3s ease-in-out";
+      });
+      projectElement.addEventListener("mouseleave", function () {
+        this.style.transform = "scale(1)";
+      });
+
       container.appendChild(projectElement);
     });
   } catch (error) {
