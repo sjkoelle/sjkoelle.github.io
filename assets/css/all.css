@@ -294,25 +294,11 @@ body {
   height: auto;
   width: 100%;
   position: relative; /* Needed for absolute positioning of child */
-  margin-top: 1vh;
-  margin-bottom: 1vh;
   display: flex;
   flex-direction: column;
   position: relative;
 }
-@media (max-width: 768px) {
-  .customLinkContainer {
-    align-items: flex-start; /* Align children to the left */
-    background-color: white; /* Light grey background */
-    width: 90vw;
-    height: auto; /* Allow containers to stretch in height */
-    position: relative; /* Needed for absolute positioning of child */
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    display: flex;
-    flex-direction: column;
-  }
-}
+
 .customLinkContainer:hover {
   background-color: #e3c6b1; /* Light grey color, adjust as desired */
   cursor: pointer;
