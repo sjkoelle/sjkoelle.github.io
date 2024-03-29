@@ -1,5 +1,4 @@
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
-@import url(academicons.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -62,7 +61,7 @@ h1 {
 /* Links
  * ------------------------------------	 */
 a {
-  color: #c99065;
+  color: purple;
   text-decoration: none;
   outline: 0;
 }
@@ -146,7 +145,7 @@ header nav a:hover {
   }
   .thumb-container .thumb-unit {
     width: 80vw;
-    height: 40vw;
+    height: 40vh;
   }
 }
 body {
@@ -248,5 +247,138 @@ body {
     float: right;
     width: 40%; /* Set width to 50% for larger screens */
     margin-top: 20px;
+  }
+}
+
+.nav-content {
+  width: 100%;
+  max-width: 1200px; /* Adjust based on your site's max width */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo h1 {
+  font-size: 36px; /* Adjust font size as needed */
+}
+
+.nav-links {
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.link-wrapper {
+  display: flex;
+  margin-left: -300px;
+  gap: 20px; /* Space between links */
+  padding-bottom: 20px; /* Adjust as needed to position links from the bottom edge */
+}
+
+.customLinkContainer {
+  align-items: flex-start; /* Align children to the left */
+  background-color: white; /* Light grey background */
+  max-width: 850px;
+  min-height: 10vh;
+  padding: 1vw;
+  width: 100%;
+  position: relative; /* Needed for absolute positioning of child */
+  display: flex;
+  flex-direction: column;
+}
+
+.customLinkContainer:hover {
+  background-color: #e3c6b1; /* Light grey color, adjust as desired */
+  cursor: pointer;
+}
+
+.customLinkContainer h5,
+h3,
+p {
+  margin: 0;
+  width: 100%;
+  padding: 0.5%;
+}
+
+.columns {
+  line-height: normal;
+  flex-direction: row;
+  width: 100%;
+  display: flex;
+}
+
+.content {
+  line-height: normal;
+  width: 80%;
+  flex-direction: column;
+  display: flex;
+  left: 2vw; /* Position at the left edge */
+  top: 0vw; /* Position at the bottom */
+}
+
+.year {
+  position: absolute;
+  margin-top: auto;
+  line-height: normal;
+  display: flex;
+  font-size: 30;
+  right: 0vw;
+}
+
+.links {
+  /* position: absolute; */
+  line-height: normal;
+  flex-direction: row;
+  gap: 1vw; /* Maintain spacing between links */
+  display: flex;
+  padding: 0.5%;
+}
+
+.customLinkContainer a {
+  align-self: flex-end;
+  display: flex;
+  background-color: #fff; /* White background for the links */
+  border: 2px solid #000; /* Example: 2px solid black border */
+  color: purple; /* Text color */
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+.customLinkContainer a:hover {
+  background-color: #e3c6b1; /* Change color on hover */
+  color: #fff; /* Text color on hover */
+}
+
+/* Hover effect for the container, applied only when not having the 'child-hovered' class */
+.customLinkContainer:not(.child-hovered):hover {
+  background-color: #f0f0f0; /* Example hover color */
+}
+
+/* Styles for when the child link is hovered */
+.customLinkContainer.child-hovered {
+  /* Here you can define how the container should look when the child is hovered */
+  /* For example, you might revert to the default background color */
+  background-color: transparent; /* Revert to default or any specific style */
+}
+
+.site-container {
+  width: 900;
+  margin: auto;
+}
+
+@media (max-width: 900px) {
+  .site-container {
+    width: 85vw;
   }
 }
