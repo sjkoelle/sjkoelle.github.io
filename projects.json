@@ -5,8 +5,7 @@
     "venue": "AISTAT",
     "year": 2024,
     "links": [
-      { "name": "PDF", "url": "link-to-pdf-1" },
-      { "name": "Code", "url": "link-to-pdf-1" }
+      { "name": "Code", "url": "https://github.com/sjkoelle/montlake" }
     ],
     "url": "/"
   },
@@ -29,7 +28,6 @@
     "venue": "Network Neuroscience",
     "year": 2023,
     "links": [
-      { "name": "PDF", "url": "link-to-pdf-1" },
       {
         "name": "Code",
         "url": "https://github.com/AllenInstitute/mouse_connectivity_models/tree/class-specific"
@@ -37,7 +35,6 @@
     ],
     "url": "https://direct.mit.edu/netn/article/7/4/1497/117562/Modeling-the-cell-type-specific-mesoscale-murine"
   },
-
   {
     "title": "Grimes Challenge",
     "authors": "Uberduck",
@@ -47,6 +44,108 @@
       {
         "name": "Results",
         "url": "https://app.uberduck.ai/grimes/finalists?s=09"
+      },
+      {
+        "name": "Code",
+        "url": "https://github.com/uberduck-ai/uberduck-ml-dev"
+      }
+    ]
+  },
+  {
+    "title": "Manifold Coordinates with Physical Meaning",
+    "authors": "Samson J. Koelle, Hanyu Zhang, Marina Meila, Yu-Chia Chen",
+    "venue": "J. Mach. Learn. Res.",
+    "year": 2022,
+    "links": [
+      { "name": "Code", "url": "https://github.com/sjkoelle/montlake" }
+    ],
+    "url": "https://jmlr.org/papers/v23/19-644.html"
+  },
+  {
+    "title": "Geometric Algorithms for Interpretable Manifold Learning",
+    "authors": "Samson Koelle",
+    "venue": "Department of Statistics PhD Thesis",
+    "year": 2021,
+    "url": "https://www.proquest.com/docview/2651810366?pq-origsite=gscholar&fromopenview=true",
+    "links": [{ "name": "PDF", "url": "/assets/pdf/KoelleDissertation.pdf" }]
+  },
+  {
+    "title": "Tangent Space Least Adaptive Clustering",
+    "authors": "James Buenﬁl, Samson Koelle, Marina Meila",
+    "venue": "2021 ICML Unsupervised Learning for Reinforcement Learning Workshop",
+    "year": 2021,
+    "url": "https://openreview.net/forum?id=00thAjcutwh"
+  },
+  {
+    "title": "Interrogation of clonal tracking data using barcodetrackR",
+    "authors": "Diego A. Espinoza, Ryland D. Mortlock, Samson J. Koelle, Chuanfeng Wu, Cynthia E. Dunbar",
+    "venue": "Nat Comput Sci",
+    "year": 2021,
+    "url": "https://www.nature.com/articles/s43588-021-00057-4",
+    "links": [
+      { "name": "Code", "url": "https://dunbarlabnih.github.io/barcodetrackR/" }
+    ]
+  },
+  {
+    "title": "Statistical inference for partially observed branching processes with application to cell lineage tracking of in vivo hematopoiesis",
+    "authors": "Jason Xu, Samson Koelle, Peter Guttorp, Chuanfeng Wu, Cynthia Dunbar, Janis L. Abkowitz, Vladimir N. Minin",
+    "venue": "Ann. Appl. Stat.",
+    "year": 2019,
+    "url": "https://projecteuclid.org/journals/annals-of-applied-statistics/volume-13/issue-4/Statistical-inference-for-partially-observed-branching-processes-with-application-to/10.1214/19-AOAS1272.full"
+  },
+  {
+    "title": "Geographic clonal tracking in macaques provides insights into HSPC migration and differentiation",
+    "authors": "Chuanfeng Wu, Diego A. Espinoza, Samson J. Koelle, E Lake Potter, Rong Lu, Brian Li, Di Yang, Xing Fan, Robert E. Donahue, Mario Roederer, Cynthia E. Dunbar",
+    "venue": "J. Exp. Med.",
+    "year": 2018,
+    "url": "https://pubmed.ncbi.nlm.nih.gov/29141868/"
+  },
+  {
+    "title": "Clonal expansion and compartmentalized maintenance of rhesus macaque NK cell subsets",
+    "authors": "Chuanfeng Wu, Diego A. Espinoza, Samson J. Koelle, Di Yang, Lauren Truitt, Heinrich Schlums, Bernard A. Lafont, Jan K. Davidson-Moncada, Rong Lu, Amitinder Kaur, Quirin Hammer, Brian Li, Sandhya Panch, David A. Allan, Robert E. Donahue, Richard W. Childs, Chiara Romagnani, Yenan T. Bryceson, Cynthia E. Dunbar",
+    "venue": "Sci Immunol",
+    "year": 2018,
+    "url": "https://pubmed.ncbi.nlm.nih.gov/30389798/"
+  },
+  {
+    "title": "Acquired cancer resistance to combination immunotherapy from transcriptional loss of class I HLA",
+    "authors": "K G Paulson, V Voillet, M S McAfee, D S Hunter, F D Wagener, M Perdicchio, W J Valente, S J Koelle, C D Church, N Vandeven, H Thomas, A G Colunga, J G Iyer, C Yee, R Kulikauskas, D M Koelle, R H Pierce, J H Bielas, P D Greenberg, S Bhatia, R Gottardo, P Nghiem, A G Chapuis",
+    "venue": "Nat. Commun.",
+    "year": 2018,
+    "url": "https://www.nature.com/articles/s41467-018-06300-3"
+  },
+
+  {
+    "title": "The impact of aging on primate hematopoiesis as interrogated by clonal tracking",
+    "authors": "Kyung-Rok Yu, Diego A. Espinoza, Chuanfeng Wu, Lauren Truitt, Tae-Hoon Shin, Shirley Chen, Xing Fan, Idalia M. Yabe, Sandhya Panch, So Gun Hong, Samson J. Koelle, Rong Lu, Aylin Bonifacino, Allen Krouse, Mark Metzger, Robert E. Donahue, Cynthia E. Dunbar",
+    "venue": "Blood",
+    "year": 2018,
+    "url": "https://pubmed.ncbi.nlm.nih.gov/29295845/"
+  },
+  {
+    "title": "Barcoding of Macaque Hematopoietic Stem and Progenitor Cells: A Robust Platform to Assess Vector Genotoxicity",
+    "authors": "Idalia M. Yabe, Lauren L. Truitt, Diego A. Espinoza, Chuanfeng Wu, Samson Koelle, Sandhya Panch, Marcus A. F. Corat, Thomas Winkler, Kyung-Rok Yu, So Gun Hong, Aylin Bonifacino, Allen Krouse, Mark Metzger, Robert E. Donahue, Cynthia E. Dunbar",
+    "venue": "Mol Ther Methods Clin Dev",
+    "year": 2018,
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6258888/"
+  },
+  {
+    "title": "Quantitative stability of hematopoietic stem and progenitor cell clonal output in rhesus macaques receiving transplants",
+    "authors": "Samson J. Koelle, Diego A. Espinoza, Chuanfeng Wu, Jason Xu, Rong Lu, Brian Li, Robert E. Donahue, Cynthia E. Dunbar",
+    "venue": "Blood",
+    "year": 2017,
+    "url": "https://pubmed.ncbi.nlm.nih.gov/28087539/"
+  },
+  {
+    "title": "Clonal tracking of rhesus macaque hematopoiesis highlights a distinct lineage origin for natural killer cells",
+    "authors": "Chuanfeng Wu, Brian Li, Rong Lu, Samson J. Koelle, Yanqin Yang, Alexander Jares, Alan E. Krouse, Mark Metzger, Frank Liang, Karin Loré, Colin O. Wu, Robert E. Donahue, Irvin S. Y. Chen, Irving Weissman, Cynthia E. Dunbar",
+    "venue": "Cell Stem Cell",
+    "year": 2014,
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3979461/",
+    "links": [
+      {
+        "name": "Code",
+        "url": "https://github.com/dunbarlabNIH/R-code-and-tabular-data"
       }
     ]
   }
