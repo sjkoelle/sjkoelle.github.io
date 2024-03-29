@@ -4,8 +4,10 @@
     "authors": "Hanyu Zhang, Octavian Murad, Samson Koelle, Marina Meila",
     "venue": "AISTAT",
     "year": 2024,
-    "pdfLink": "link-to-pdf-1",
-    "codeLink": "link-to-code-1",
+    "links": [
+      { "name": "PDF", "url": "link-to-pdf-1" },
+      { "name": "Code", "url": "link-to-pdf-1" }
+    ],
     "url": "/"
   },
   {
@@ -13,15 +15,39 @@
     "authors": "Uberduck",
     "venue": "Ogilvy x Milka",
     "year": 2024,
-    "url": "/"
+    "url": "https://milka-snelle-24.onmlab.in/",
+    "links": [
+      {
+        "name": "Press release",
+        "url": "https://www.ogilvy.com/work/let-snelle-sing-it-you"
+      }
+    ]
   },
   {
     "title": "Modeling the cell-type-specific mesoscale murine connectome with anterograde tracing experiments",
     "authors": "Samson Koelle, Dana Mastrovito, Jennifer D Whitesell, Karla E, Hongkui Zeng,  Marina Meila, Julie A Hariis, and Stefan Mihalas",
     "venue": "Network Neuroscience",
     "year": 2023,
-    "pdfLink": "link-to-pdf-1",
-    "codeLink": "link-to-code-1",
-    "url": "/"
+    "links": [
+      { "name": "PDF", "url": "link-to-pdf-1" },
+      {
+        "name": "Code",
+        "url": "https://github.com/AllenInstitute/mouse_connectivity_models/tree/class-specific"
+      }
+    ],
+    "url": "https://direct.mit.edu/netn/article/7/4/1497/117562/Modeling-the-cell-type-specific-mesoscale-murine"
+  },
+
+  {
+    "title": "Grimes Challenge",
+    "authors": "Uberduck",
+    "year": 2023,
+    "url": "https://app.uberduck.ai/grimes",
+    "links": [
+      {
+        "name": "Results",
+        "url": "https://app.uberduck.ai/grimes/finalists?s=09"
+      }
+    ]
   }
 ]

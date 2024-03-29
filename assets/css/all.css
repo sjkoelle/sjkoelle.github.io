@@ -324,7 +324,7 @@ p {
   flex-direction: column;
   display: flex;
   left: 2vw; /* Position at the left edge */
-  top: 0.5vw; /* Position at the bottom */
+  top: 0vw; /* Position at the bottom */
 }
 
 .year {

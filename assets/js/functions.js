@@ -41,13 +41,18 @@ async function loadProjects() {
       // Always add links container but only add links if they exist
       let linksContent = `<div class="links">`;
 
-      if (project.pdfLink) {
-        linksContent += `<a href="${project.pdfLink}" target="_blank" class="nested-link">PDF</a>`;
+      // Ensure the project.links array exists and has elements
+      if (project.links && project.links.length) {
+        project.links.forEach((link) => {
+          // Append each link to linksContent
+          if (link.url) {
+            // Check if the url key exists
+            linksContent += `<a href="${link.url}" target="_blank" class="nested-link">${link.name}</a>`;
+          }
+        });
       }
 
-      if (project.codeLink) {
-        linksContent += `<a href="${project.codeLink}" target="_blank" class="nested-link">Code</a>`;
-      }
+      linksContent += `</div>`;
 
       projectElement.innerHTML = projectContent + linksContent;
 
