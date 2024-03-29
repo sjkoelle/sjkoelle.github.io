@@ -321,22 +321,8 @@ body {
 .customLinkContainer h5,
 h3,
 p {
-  margin-left: 2vw;
   margin-top: auto;
   margin-bottom: auto;
-}
-
-@media (max-width: 768px) {
-  .customLinkContainer h5,
-  h3,
-  p {
-    min-width: 9vw; /* Keeps a minimum height */
-    height: auto;
-    padding-top: 0vh; /* Add some space */
-    text-align: left; /* Center it if the layout changes */
-    order: -1; /* Place it at the beginning if using flexbox */
-    margin-left: 4vw;
-  }
 }
 
 .content {
@@ -344,7 +330,7 @@ p {
   flex-direction: column;
   display: flex;
   left: 2vw; /* Position at the left edge */
-  top: 0; /* Position at the bottom */
+  top: 10; /* Position at the bottom */
 }
 
 .links {
@@ -353,7 +339,7 @@ p {
   gap: 1vw; /* Maintain spacing between links */
   display: flex;
   left: 2vw; /* Position at the left edge */
-  bottom: 0; /* Position at the bottom */
+  bottom: 10; /* Position at the bottom */
 }
 
 .customLinkContainer a {
