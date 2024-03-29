@@ -15,10 +15,10 @@ async function loadProjects() {
       projectElement.classList.add("customLinkContainer");
       let projectContent = `<div class="content">`;
 
-      // Conditionally add authors
-      if (project.year) {
-        projectContent += `<div class="year">${project.year}</div>`;
-      }
+      //   // Conditionally add authors
+      //   if (project.year) {
+      //     projectContent += `<div class="year">${project.year}</div>`;
+      //   }
       // Conditionally add the title
       if (project.title) {
         projectContent += `<h3>${project.title}</h3>`;
@@ -26,7 +26,7 @@ async function loadProjects() {
 
       // Conditionally add authors
       if (project.authors) {
-        projectContent += `<p class="authors">${project.authors}</p>`;
+        projectContent += `<h5>${project.authors}</h5>`;
       }
 
       // Conditionally add venue and year
