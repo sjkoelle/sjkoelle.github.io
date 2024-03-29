@@ -341,8 +341,6 @@ p {
   flex-direction: row;
   gap: 1vw; /* Maintain spacing between links */
   display: flex;
-  left: 2vw; /* Position at the left edge */
-  bottom: 0.5vw; /* Position at the bottom */
 }
 
 .customLinkContainer a {
