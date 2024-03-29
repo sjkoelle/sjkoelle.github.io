@@ -290,13 +290,12 @@ body {
   align-items: flex-start; /* Align children to the left */
   background-color: white; /* Light grey background */
   max-width: 800px;
-  min-height: 12vh;
-  height: auto;
+  min-height: 10vh;
+  padding: 1vw;
   width: 100%;
   position: relative; /* Needed for absolute positioning of child */
   display: flex;
   flex-direction: column;
-  position: relative;
 }
 
 .customLinkContainer:hover {
@@ -311,8 +310,15 @@ p {
   margin-bottom: auto;
 }
 
+.columns {
+  /* position: absolute; */
+  line-height: normal;
+  flex-direction: row;
+  display: flex;
+}
+
 .content {
-  position: absolute;
+  /* position: absolute; */
   line-height: normal;
   flex-direction: column;
   display: flex;
@@ -325,12 +331,12 @@ p {
   line-height: normal;
   display: flex;
   font-size: 30;
-  right: 2vw; /* Position at the left edge */
-  bottom: 1vw; /* Position at the bottom */
+  top: 0vw;
+  right: 0vw;
 }
 
 .links {
-  position: absolute;
+  /* position: absolute; */
   line-height: normal;
   flex-direction: row;
   gap: 1vw; /* Maintain spacing between links */
