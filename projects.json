@@ -1,13 +1,13 @@
 [
   {
     "title": "Consistency of dictionary-based manifold learning",
-    "authors": "Hanyu Zhang, Octavian Murad, Samson Koelle, Marina Meila",
+    "authors": "Samson Koelle, Hanyu Zhang, Octavian-Vlad Murad, Marina Meila",
     "venue": "AISTAT",
     "year": 2024,
     "links": [
       { "name": "Code", "url": "https://github.com/sjkoelle/montlake" }
     ],
-    "url": "https://arxiv.org/abs/2302.00263"
+    "url": "https://proceedings.mlr.press/v238/j-koelle24a.html"
   },
   {
     "title": "Let Snelle Sing It For You",
