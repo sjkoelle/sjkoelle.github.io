@@ -40,12 +40,8 @@
     "title": "Grimes Challenge",
     "authors": "Uberduck",
     "year": 2023,
-    "url": "https://app.uberduck.ai/grimes",
+    "url": "https://www.youtube.com/results?search_query=grimes+challenge+uberduck",
     "links": [
-      {
-        "name": "Results",
-        "url": "https://app.uberduck.ai/grimes/finalists?s=09"
-      },
       {
         "name": "Code",
         "url": "https://github.com/uberduck-ai/uberduck-ml-dev"
