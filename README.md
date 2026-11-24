@@ -11,15 +11,17 @@ OAuth web client with `https://sjkoelle.github.io` as an authorized JavaScript
 origin. Set the public client ID and the HTTPS session endpoint in the page's
 `dashboard-google-client-id` and `dashboard-session-url` meta tags.
 
-The session endpoint receives a POST with the Google ID token in the
-Authorization bearer header. It must verify the signature, issuer, audience,
-and expiry with Google's server-side verifier. Configure the verified owner
-email in the backend, then pin the corresponding Google `sub` for ongoing
-authorization. Return 204 only for the authorized owner, 401 for invalid
-credentials, or 403 for an account outside the allowlist. Enable CORS for the
-Pages origin and allow POST and the Authorization header in the preflight.
-Keep private project data and project actions behind server-side authorization.
-Never put credentials or private data into publicly served Pages assets.
+The AWS SAM template at `_dashboard-auth/template.yaml` deploys the session API.
+Run `sam deploy --guided --template-file _dashboard-auth/template.yaml` from the
+repository root with an authorized AWS profile. Supply the public Google client
+ID and owner email as stack parameters, then copy the `SessionUrl` stack output
+into the page's `dashboard-session-url` meta tag.
+
+API Gateway validates the Google bearer token and forwards verified claims to
+Lambda. Lambda returns 204 only for the verified owner email, 401 without
+verified claims, or 403 for any other account. Before adding project actions,
+pin the owner's Google `sub` and enforce authorization on each protected route.
+Keep private project data and credentials out of publicly served Pages assets.
 
 # Portfolio Jekyll Theme
 
