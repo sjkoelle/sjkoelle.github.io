@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Log in | Samson Koelle</title>
+  <link rel="stylesheet" href="/assets/css/all.css" />
+  <link rel="stylesheet" href="/assets/css/dashboard.css" />
+  <meta name="dashboard-google-client-id" content="" />
+  <meta name="dashboard-session-url" content="" />
+  <script src="/assets/js/dashboard.js" defer></script>
+</head>
+<body>
+  <div class="site-container">
+    <nav class="top-navigation" aria-label="Main navigation">
+      <div class="nav-content">
+        <div class="logo"><h1>Samson Koelle</h1></div>
+        <div class="nav-links">
+          <a href="/" style="margin-right: 20px">About</a>
+          <a href="projects.html" style="margin-right: 20px">Projects</a>
+          <a href="login.html" aria-current="page">Log in</a>
+        </div>
+      </div>
+    </nav>
+    <main class="dashboard">
+      <h2>Project dashboard</h2>
+      <p id="login-status" role="status">Google sign-in is awaiting configuration.</p>
+      <div id="google-sign-in"></div>
+      <noscript>Enable JavaScript to sign in.</noscript>
+      <section id="project-tools" aria-label="Project tools" hidden>
+        <button type="button" id="sign-out">Sign out</button>
+        <div class="dashboard-projects">
+          <details>
+            <summary>Duplex Music</summary>
+            <p>Warm up a session and play alongside generated accompaniment.</p>
+            <p>Jam sessions are awaiting a backend.</p>
+          </details>
+          <details>
+            <summary>Virtual Cells</summary>
+            <p>Explore how nutrient levels affect growth and division in a simulated cell.</p>
+            <p>The simulator is awaiting integration.</p>
+          </details>
+          <details>
+            <summary>Market Elasticity</summary>
+            <p>Trace a reported holdings change across two quarters.</p>
+            <p>The holdings explorer is awaiting integration.</p>
+          </details>
+          <details>
+            <summary>Juneau</summary>
+            <p>Open the AI development workspace.</p>
+            <p>The workspace is awaiting integration.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
