@@ -3,6 +3,24 @@
 - research has text describing each paper -> this is dumb
 - should be a link and a blurb about each project with links to pubbies
 
+
+## Project dashboard sign-in
+
+`login.html` is a static GitHub Pages shell. To enable sign-in, create a Google
+OAuth web client with `https://sjkoelle.github.io` as an authorized JavaScript
+origin. Set the public client ID and the HTTPS session endpoint in the page's
+`dashboard-google-client-id` and `dashboard-session-url` meta tags.
+
+The session endpoint receives a POST with the Google ID token in the
+Authorization bearer header. It must verify the signature, issuer, audience,
+and expiry with Google's server-side verifier. Configure the verified owner
+email in the backend, then pin the corresponding Google `sub` for ongoing
+authorization. Return 204 only for the authorized owner, 401 for invalid
+credentials, or 403 for an account outside the allowlist. Enable CORS for the
+Pages origin and allow POST and the Authorization header in the preflight.
+Keep private project data and project actions behind server-side authorization.
+Never put credentials or private data into publicly served Pages assets.
+
 # Portfolio Jekyll Theme
 
 This is a Jekyll theme built using the [DevTips Starter Kit](http://devtipsstarterkit.com/) as a foundation for starting, and following closely the amazing tutorial by [Travis Neilson over at DevTips](https://www.youtube.com/watch?v=T6jKLsxbFg4&list=PL0CB3OvPhDA_STygmp3sDenx3UpdOMk7P). The purpose of this theme is to provide a clean and simple website for your portfolio. Emphasis is placed on your projects, which are shown front and center on the home page.
