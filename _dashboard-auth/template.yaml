@@ -1,0 +1,51 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Parameters:
+  GoogleClientId:
+    Type: String
+  OwnerEmail:
+    Type: String
+    NoEcho: true
+
+Resources:
+  DashboardApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration:
+        AllowOrigins:
+          - https://sjkoelle.github.io
+        AllowMethods:
+          - POST
+          - OPTIONS
+        AllowHeaders:
+          - Authorization
+      Auth:
+        DefaultAuthorizer: Google
+        Authorizers:
+          Google:
+            IdentitySource: '$request.header.Authorization'
+            JwtConfiguration:
+              issuer: https://accounts.google.com
+              audience:
+                - !Ref GoogleClientId
+  VerifyOwner:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.13
+      Handler: app.handler
+      CodeUri: .
+      Environment:
+        Variables:
+          OWNER_EMAIL: !Ref OwnerEmail
+      Events:
+        Session:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref DashboardApi
+            Method: POST
+            Path: /session
+
+Outputs:
+  SessionUrl:
+    Value: !Sub 'https://${DashboardApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}/session'
