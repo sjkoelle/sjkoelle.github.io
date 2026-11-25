@@ -11,6 +11,7 @@ let microphone;
 let peer;
 let statusTimer;
 let connecting = false;
+let stopping = false;
 
 async function api(path, { method = "GET", body } = {}) {
   const response = await fetch(new URL(`/duplex/${path}`, base), {
@@ -49,10 +50,10 @@ function pollAgain() {
 
 async function refresh() {
   const scope = requestScope;
-  if (!scope) return;
+  if (!scope || stopping) return;
   try {
     const { state } = await api("state");
-    if (scope !== requestScope) return;
+    if (scope !== requestScope || stopping) return;
     launch.disabled = state !== "stopped";
     stop.disabled = state !== "active";
     if (state !== "active") {
@@ -69,12 +70,12 @@ async function refresh() {
     }
     try {
       await api("ready");
-      if (scope !== requestScope) return;
+      if (scope !== requestScope || stopping) return;
       start.disabled = false;
       message.textContent = "Ready. Start your jam when you’re set.";
       pollAgain();
     } catch {
-      if (scope !== requestScope) return;
+      if (scope !== requestScope || stopping) return;
       start.disabled = true;
       message.textContent = "Warming up the GPU…";
       pollAgain();
@@ -91,7 +92,7 @@ launch.addEventListener("click", async () => {
     await api("launch", { method: "POST" });
     if (scope === requestScope) await refresh();
   } catch (error) {
-    if (scope !== requestScope) return;
+    if (scope !== requestScope || stopping) return;
     await refresh();
     message.textContent = error.message;
   }
@@ -167,16 +168,22 @@ start.addEventListener("click", async () => {
 
 stop.addEventListener("click", async () => {
   const scope = requestScope;
+  stopping = true;
   stopPolling();
   closeMedia();
+  launch.disabled = true;
   start.disabled = true;
   stop.disabled = true;
   message.textContent = "Stopping GPU…";
   try {
     await api("stop", { method: "POST" });
-    if (scope === requestScope) await refresh();
+    if (scope === requestScope) {
+      stopping = false;
+      await refresh();
+    }
   } catch (error) {
     if (scope === requestScope) {
+      stopping = false;
       stop.disabled = false;
       message.textContent = error.message;
     }
@@ -198,6 +205,7 @@ export const duplex = {
     requestScope = undefined;
     credential = undefined;
     connecting = false;
+    stopping = false;
     launch.disabled = start.disabled = stop.disabled = true;
     message.textContent = "Live jam is awaiting deployment.";
   },
