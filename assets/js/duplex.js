@@ -10,6 +10,8 @@ let requestScope;
 let microphone;
 let peer;
 let statusTimer;
+let connectionTimer;
+let iceServers = [];
 let connecting = false;
 let stopping = false;
 
@@ -30,6 +32,7 @@ async function api(path, { method = "GET", body } = {}) {
 }
 
 function closeMedia() {
+  clearTimeout(connectionTimer);
   const connection = peer;
   peer = undefined;
   connection?.close();
@@ -69,8 +72,9 @@ async function refresh() {
       return;
     }
     try {
-      await api("ready");
+      const ready = await api("ready");
       if (scope !== requestScope || stopping) return;
+      iceServers = ready.iceServers || [];
       start.disabled = false;
       message.textContent = "Ready. Start your jam when you’re set.";
       pollAgain();
@@ -109,7 +113,7 @@ function gatherCandidates(connection) {
     const onChange = () => {
       if (connection.iceGatheringState === "complete") finish();
     };
-    const timeout = setTimeout(finish, 2500);
+    const timeout = setTimeout(finish, 5000);
     connection.addEventListener("icegatheringstatechange", onChange);
   });
 }
@@ -128,8 +132,14 @@ start.addEventListener("click", async () => {
       return;
     }
     microphone = stream;
-    const connection = new RTCPeerConnection();
+    const connection = new RTCPeerConnection({ iceServers });
     peer = connection;
+    connectionTimer = setTimeout(() => {
+      if (peer !== connection) return;
+      closeMedia();
+      start.disabled = false;
+      message.textContent = "Audio connection timed out. Try Start Jam again.";
+    }, 20_000);
     connection.addEventListener("track", ({ track }) => {
       if (peer !== connection) return;
       backing.srcObject = new MediaStream([track]);
@@ -141,6 +151,7 @@ start.addEventListener("click", async () => {
     connection.addEventListener("connectionstatechange", () => {
       if (peer !== connection) return;
       if (connection.connectionState === "connected") {
+        clearTimeout(connectionTimer);
         message.textContent = "Jam is live.";
       } else if (["failed", "closed"].includes(connection.connectionState)) {
         closeMedia();
@@ -204,6 +215,7 @@ export const duplex = {
     requestScope?.abort();
     requestScope = undefined;
     credential = undefined;
+    iceServers = [];
     connecting = false;
     stopping = false;
     launch.disabled = start.disabled = stop.disabled = true;
