@@ -19,6 +19,7 @@ Resources:
         AllowOrigins:
           - https://sjkoelle.github.io
         AllowMethods:
+          - GET
           - POST
           - OPTIONS
         AllowHeaders:
@@ -49,6 +50,12 @@ Resources:
             ApiId: !Ref DashboardApi
             Method: POST
             Path: /session
+        DuplexStatus:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref DashboardApi
+            Method: GET
+            Path: /duplex/status
 
 Outputs:
   SessionUrl:

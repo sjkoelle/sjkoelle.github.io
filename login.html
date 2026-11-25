@@ -30,11 +30,16 @@
       <section id="project-tools" aria-label="Project tools" hidden>
         <button type="button" id="sign-out">Sign out</button>
         <ul class="dashboard-projects">
-          <li><strong>Duplex Music</strong><span>Coming soon</span></li>
+          <li><strong>Duplex Music</strong><button type="button" id="duplex-open" aria-expanded="false" aria-controls="duplex-panel">Open</button></li>
           <li><strong>Virtual Cells</strong><span>Coming soon</span></li>
           <li><strong>Market Elasticity</strong><span>Coming soon</span></li>
           <li><strong>Juneau</strong><span>Coming soon</span></li>
         </ul>
+        <section id="duplex-panel" aria-labelledby="duplex-title" hidden>
+          <h3 id="duplex-title">Duplex Music</h3>
+          <p id="duplex-status" role="status"></p>
+          <button type="button" id="duplex-refresh">Check jam status</button>
+        </section>
       </section>
     </main>
   </div>

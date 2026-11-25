@@ -6,11 +6,21 @@ const statusMessage = document.getElementById("login-status");
 const signIn = document.getElementById("google-sign-in");
 const toolsPanel = document.getElementById("project-tools");
 const signOut = document.getElementById("sign-out");
+const duplexOpen = document.getElementById("duplex-open");
+const duplexPanel = document.getElementById("duplex-panel");
+const duplexStatus = document.getElementById("duplex-status");
+const duplexRefresh = document.getElementById("duplex-refresh");
 let verification;
+let ownerCredential;
 
 function showSignIn(message) {
   verification?.abort();
   verification = undefined;
+  ownerCredential = undefined;
+  duplexPanel.hidden = true;
+  duplexOpen.setAttribute("aria-expanded", "false");
+  duplexRefresh.disabled = false;
+  duplexStatus.textContent = "";
   toolsPanel.hidden = true;
   signIn.hidden = false;
   statusMessage.textContent = message;
@@ -36,6 +46,7 @@ async function verifySignIn({ credential }) {
     if (verification !== request) return;
 
     if (response.status === 204) {
+      ownerCredential = credential;
       statusMessage.textContent = "Signed in.";
       signIn.hidden = true;
       toolsPanel.hidden = false;
@@ -54,6 +65,44 @@ signOut.addEventListener("click", () => {
   window.google.accounts.id.disableAutoSelect();
   showSignIn("Signed out.");
 });
+
+async function checkJamStatus() {
+  const request = verification;
+  if (!request || !ownerCredential) return;
+
+  duplexRefresh.disabled = true;
+  duplexStatus.textContent = "Checking jam status…";
+  try {
+    const response = await fetch(new URL("./duplex/status", sessionEndpoint), {
+      headers: { Authorization: `Bearer ${ownerCredential}` },
+      cache: "no-store",
+      credentials: "omit",
+      redirect: "error",
+      signal: request.signal,
+    });
+    if (verification !== request) return;
+    if (response.status === 401 || response.status === 403) {
+      showSignIn("Sign in again to check Duplex Music.");
+      return;
+    }
+    if (!response.ok) throw new Error("Status request failed");
+    const { state } = await response.json();
+    if (verification !== request) return;
+    if (state !== "unconfigured") throw new Error("Unexpected jam status");
+    duplexStatus.textContent = "Live jam is awaiting a GPU worker.";
+  } catch {
+    if (verification === request) duplexStatus.textContent = "Jam status is unavailable. Try again.";
+  } finally {
+    if (verification === request) duplexRefresh.disabled = false;
+  }
+}
+
+duplexOpen.addEventListener("click", () => {
+  duplexPanel.hidden = !duplexPanel.hidden;
+  duplexOpen.setAttribute("aria-expanded", String(!duplexPanel.hidden));
+  if (!duplexPanel.hidden && !duplexRefresh.disabled) checkJamStatus();
+});
+duplexRefresh.addEventListener("click", checkJamStatus);
 
 if (clientId && sessionEndpoint.startsWith("https://")) {
   const script = document.createElement("script");
