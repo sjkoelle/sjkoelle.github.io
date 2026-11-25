@@ -1,3 +1,5 @@
+import { duplex } from "./duplex.js";
+
 "use strict";
 
 const clientId = document.querySelector('meta[name="dashboard-google-client-id"]').content.trim();
@@ -11,6 +13,7 @@ let verification;
 function showSignIn(message) {
   verification?.abort();
   verification = undefined;
+  duplex.signOut();
   toolsPanel.hidden = true;
   signIn.hidden = false;
   statusMessage.textContent = message;
@@ -39,6 +42,7 @@ async function verifySignIn({ credential }) {
       statusMessage.textContent = "Signed in.";
       signIn.hidden = true;
       toolsPanel.hidden = false;
+      duplex.signIn(credential);
       signOut.focus();
     } else if (response.status === 401 || response.status === 403) {
       showSignIn("This Google account does not have access.");
