@@ -10,6 +10,7 @@ let requestScope;
 let microphone;
 let peer;
 let statusTimer;
+let connecting = false;
 
 async function api(path, { method = "GET", body } = {}) {
   const response = await fetch(new URL(`/duplex/${path}`, base), {
@@ -62,12 +63,16 @@ async function refresh() {
       if (state === "stopping") pollAgain();
       return;
     }
-    if (peer) return;
+    if (peer || connecting) {
+      pollAgain();
+      return;
+    }
     try {
       await api("ready");
       if (scope !== requestScope) return;
       start.disabled = false;
       message.textContent = "Ready. Start your jam when you’re set.";
+      pollAgain();
     } catch {
       if (scope !== requestScope) return;
       start.disabled = true;
@@ -111,6 +116,7 @@ function gatherCandidates(connection) {
 start.addEventListener("click", async () => {
   const scope = requestScope;
   start.disabled = true;
+  connecting = true;
   message.textContent = "Connecting microphone…";
   try {
     const stream = await navigator.mediaDevices.getUserMedia({
@@ -154,6 +160,8 @@ start.addEventListener("click", async () => {
     closeMedia();
     start.disabled = false;
     message.textContent = error.message;
+  } finally {
+    if (scope === requestScope) connecting = false;
   }
 });
 
@@ -189,6 +197,7 @@ export const duplex = {
     requestScope?.abort();
     requestScope = undefined;
     credential = undefined;
+    connecting = false;
     launch.disabled = start.disabled = stop.disabled = true;
     message.textContent = "Live jam is awaiting deployment.";
   },
