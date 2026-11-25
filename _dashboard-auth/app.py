@@ -14,7 +14,7 @@ def handler(event, context):
 
     owner_email = os.environ["OWNER_EMAIL"]
     email_verified = str(claims.get("email_verified", "")).lower() == "true"
-    if not email_verified or claims.get("email") != owner_email or not claims.get("sub"):
+    if not email_verified or claims.get("email") != owner_email or claims.get("sub") != os.environ["OWNER_GOOGLE_SUB"]:
         return {"statusCode": 403}
 
     return {"statusCode": 204}

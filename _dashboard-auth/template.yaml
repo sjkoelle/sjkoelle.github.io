@@ -4,6 +4,9 @@ Transform: AWS::Serverless-2016-10-31
 Parameters:
   GoogleClientId:
     Type: String
+  OwnerGoogleSub:
+    Type: String
+    NoEcho: true
   OwnerEmail:
     Type: String
     NoEcho: true
@@ -38,6 +41,7 @@ Resources:
       Environment:
         Variables:
           OWNER_EMAIL: !Ref OwnerEmail
+          OWNER_GOOGLE_SUB: !Ref OwnerGoogleSub
       Events:
         Session:
           Type: HttpApi
